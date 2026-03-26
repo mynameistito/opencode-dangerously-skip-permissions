@@ -1,6 +1,6 @@
 # opencode-dangerously-skip-permissions (windows)
 
-Claude Code has a flag called `--dangerously-skip-permissions` that lets the AI run commands without asking you "are you sure?" every time. OpenCode doesn't have that flag. I got tired of approving every shell command mid-session, so I built my own version using environment variables, a couple PowerShell functions, and a red theme that screams "you turned the safety off."
+Claude Code has a flag called `--dangerously-skip-permissions` that lets the AI run commands without asking you "are you sure?" every time. OpenCode doesn't have that flag. I got tired of approving every shell command mid-session, so I built my own version using environment variables, a couple PowerShell functions, and a red theme.
 
 ## What does this actually do?
 
