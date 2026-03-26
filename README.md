@@ -1,4 +1,4 @@
-# opencode-dangerously-skip-permissions
+# opencode-dangerously-skip-permissions (windows)
 
 Claude Code has a flag called `--dangerously-skip-permissions` that lets the AI run commands without asking you "are you sure?" every time. OpenCode doesn't have that flag. I got tired of approving every shell command mid-session, so I built my own version using environment variables, a couple PowerShell functions, and a red theme that screams "you turned the safety off."
 
@@ -49,6 +49,10 @@ Here's what each line does:
 
 So instead of doing a bunch of setup every time, you just type `ocd` and go.
 
+<p align="center">
+  <img src="assets/ocd.png" alt="ocd single pane view" width="700" />
+</p>
+
 ### `ocds` (the fancy one, with split panes)
 
 ```powershell
@@ -66,6 +70,10 @@ Same two env vars as `ocd`, but instead of just running OpenCode, it opens a new
 - The bottom-right pane is another empty shell (maybe for logs, git, whatever you want)
 
 It always opens in a new tab (`new-tab`), so it won't mess with whatever you already have open.
+
+<p align="center">
+  <img src="assets/ocds.png" alt="ocds tri-split pane view" width="700" />
+</p>
 
 `$wtp` is a variable I set in my profile that points to the Windows Terminal executable. I use Windows Terminal Preview, so mine looks like this:
 
@@ -203,7 +211,15 @@ Paste in the `ocd` function (and `ocds` too, if you use Windows Terminal). Save 
 If you want `ocds`, also add this line somewhere in your profile so it knows where Windows Terminal is:
 
 ```powershell
-$wtp = "wtp"   # or "wt" for regular Windows Terminal
+# Windows Terminal Preview
+$wtp = "$env:LOCALAPPDATA\Microsoft\WindowsApps\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\wt.exe"
+```
+
+If you use regular Windows Terminal (not Preview), the path is:
+
+```powershell
+# Windows Terminal (stable)
+$wtp = "$env:LOCALAPPDATA\Microsoft\WindowsApps\Microsoft.WindowsTerminal_8wekyb3d8bbwe\wt.exe"
 ```
 
 ### 5. Reload your profile
@@ -227,3 +243,7 @@ If everything worked, OpenCode should launch with a red-tinted UI. That red is y
 ## Fair warning
 
 This skips every permission check. OpenCode will run shell commands, edit files, and do whatever the model decides without asking you first. I use it when I trust the task and want uninterrupted flow, but you should understand what that means before you turn it on. If a model decides to `rm -rf` something, nothing is going to stop it. You've been warned.
+
+
+## License
+MIT
