@@ -244,6 +244,10 @@ If everything worked, OpenCode should launch with a red-tinted UI. That red is y
 
 This skips every permission check. OpenCode will run shell commands, edit files, and do whatever the model decides without asking you first. I use it when I trust the task and want uninterrupted flow, but you should understand what that means before you turn it on. If a model decides to `rm -rf` something, nothing is going to stop it. You've been warned.
 
-
 ## License
 MIT
+
+##  Notes
+Found this cool? Consider staring it or flicking me a follow on here or X [@mynameistito](https://x.com/mynameistito)
+
+If you have issues feel free to reach out / create an Issue and I'll try where I can
